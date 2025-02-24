@@ -1,4 +1,5 @@
-// Contact.tsx
+"use client";
+
 import React from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaFilePdf } from 'react-icons/fa';
 

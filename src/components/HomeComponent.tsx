@@ -1,49 +1,92 @@
-import Image from 'next/image';
+"use client";
 
-export default function HomeComponent() {
-    return (
-        <section id="home" className="flex items-center justify-center min-h-screen bg-gray-900 text-white px-4 md:px-8">
-            <div className="flex flex-col md:flex-row items-center gap-8 max-w-5xl w-full">
-                {/* Text Section */}
-                <div className="text-center md:text-left space-y-4 md:w-1/2">
-                    <h1 className="text-4xl md:text-5xl font-bold text-red-500">Hi, I&apos;m Dalton Berg</h1>
-                    <h2 className="text-3xl md:text-4xl text-red-400">Software Engineering Student at ASU</h2>
-                    <p className="text-lg">Determined Learner with experience in Software Development</p>
-                    <h3 className="text-xl font-semibold text-red-400 mt-4">Interests:</h3>
-                    <ul className="space-y-2 text-lg">
-                        <li className="flex items-center gap-2">
-                            <span className="text-red-500 text-xl">★</span> Software Engineering
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <span className="text-red-500 text-xl">★</span> Software Development
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <span className="text-red-500 text-xl">★</span> Backend Development
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <span className="text-red-500 text-xl">★</span> AI Engineering
-                        </li>
-                    </ul>
-                </div>
+import React, { useState } from "react";
+import Image from "next/image";
+import PortfolioPic from "@/images/DaltonsPortfolioPicture.jpg";
+import BackgroundPic from "@/images/PortfolioHomeBackgroundImg.jpeg";
 
-                {/* Image Section */}
-                <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-red-500 overflow-hidden group">
-                    <Image 
-                        src="/src/images/DaltonsPortfolioPicture.jpg" 
-                        alt="Dalton Berg" 
-                        width={400} 
-                        height={400} 
-                        className="absolute inset-0 object-cover w-full h-full group-hover:opacity-0 transition-opacity duration-500"
-                    />
-                    <Image 
-                        src="/src/images/PortfolioHomeBackgroundImg.jpeg" 
-                        alt="Technology Background" 
-                        width={400} 
-                        height={400} 
-                        className="absolute inset-0 object-cover w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    />
-                </div>
+const HomeComponent = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleMouseEnter = () => setIsFlipped(true);
+  const handleMouseLeave = () => setIsFlipped(false);
+
+  return (
+    <div
+      id="home"
+      className="flex items-center justify-center min-h-screen px-4 py-8 bg-gray-900 text-white"
+    >
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full space-y-10 md:space-y-0 md:space-x-10 pt-16 md:pt-0">
+        {/* Text Section */}
+        <div className="flex-1 text-center md:text-left">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-red-500 mb-4">
+            Hi, I&apos;m Dalton Berg
+          </h1>
+          <h2 className="text-2xl sm:text-3xl text-red-400 mb-3">
+            Software Engineering Student at ASU
+          </h2>
+          <p className="text-base sm:text-lg mb-6">
+            Determined Learner with experience in Software Development
+          </p>
+          <h3 className="text-xl sm:text-2xl font-bold text-red-400 mb-4">
+            Interests:
+          </h3>
+          <ul className="space-y-2 sm:space-y-3">
+            {[
+              "Software Engineering",
+              "Software Development",
+              "Backend Development",
+              "AI Engineering",
+            ].map((interest) => (
+              <li key={interest} className="flex items-center justify-center md:justify-start text-lg">
+                <span className="text-red-500 mr-2 sm:mr-3 text-xl sm:text-2xl">★</span>
+                {interest}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Image Section with Coin Flip Effect */}
+        <div className="flex-1 flex justify-center items-center">
+          <div
+            className="perspective-1000 w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div
+              className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+                isFlipped ? "rotate-y-180" : ""
+              }`}
+            >
+              {/* Front Face */}
+              <div className="absolute inset-0 backface-hidden border-4 border-red-500 rounded-full overflow-hidden">
+                <Image
+                  src={PortfolioPic}
+                  alt="Dalton Berg"
+                  width={450}
+                  height={450}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+
+              {/* Back Face */}
+              <div className="absolute inset-0 backface-hidden rotate-y-180 border-4 border-red-500 rounded-full overflow-hidden">
+                <Image
+                  src={BackgroundPic}
+                  alt="Technology Background"
+                  width={450}
+                  height={450}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
             </div>
-        </section>
-    );
-}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HomeComponent;
