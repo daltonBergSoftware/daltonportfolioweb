@@ -38,8 +38,13 @@ const HomeComponent = () => {
               "Backend Development",
               "AI Engineering",
             ].map((interest) => (
-              <li key={interest} className="flex items-center justify-center md:justify-start text-lg">
-                <span className="text-red-500 mr-2 sm:mr-3 text-xl sm:text-2xl">★</span>
+              <li
+                key={interest}
+                className="flex items-center justify-center md:justify-start text-lg"
+              >
+                <span className="text-red-500 mr-2 sm:mr-3 text-xl sm:text-2xl">
+                  ★
+                </span>
                 {interest}
               </li>
             ))}

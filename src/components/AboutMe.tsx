@@ -23,7 +23,9 @@ const AboutMe = () => {
   const handlePreviousImage = useCallback(() => {
     setFade(false);
     setTimeout(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      );
       setFade(true);
     }, 500);
   }, []);
@@ -46,16 +48,17 @@ const AboutMe = () => {
           <div className="flex items-center justify-center h-full">
             <div>
               <p className="mb-6">
-                I am currently a student at Arizona State University, majoring in
-                Software Engineering. Born and raised in Arizona, I have a passion
-                for various areas of computing, including Software Development,
-                Artificial Intelligence Engineering, and Data Analytics.
+                I am currently a student at Arizona State University, majoring
+                in Software Engineering. Born and raised in Arizona, I have a
+                passion for various areas of computing, including Software
+                Development, Artificial Intelligence Engineering, and Data
+                Analytics.
               </p>
               <p>
                 I am committed to continuous learning and self-improvement,
-                striving to enhance my proficiency in software engineering. My goal
-                is to acquire new skills, refine existing ones, and stay adaptable
-                in the ever-evolving world of technology.
+                striving to enhance my proficiency in software engineering. My
+                goal is to acquire new skills, refine existing ones, and stay
+                adaptable in the ever-evolving world of technology.
               </p>
             </div>
           </div>
