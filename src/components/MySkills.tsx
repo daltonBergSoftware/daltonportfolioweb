@@ -28,44 +28,62 @@ import {
   SiNextdotjs,
   SiGraphql,
   SiTypescript,
+  SiPostgresql,
+  SiSupabase,
+  SiNeovim,
+  SiTailwindcss,
+  SiTrpc,
+  SiZod,
+  SiClerk,
+  SiShadcnui,
+  SiPrisma,
 } from "react-icons/si";
 
 const skills = {
-  "Programming Languages": [
+  "Languages": [
     { name: "Python", icon: <FaPython className="shrink-0" /> },
     { name: "Java", icon: <FaJava className="shrink-0" /> },
     { name: "C++", icon: <SiCplusplus className="shrink-0" /> },
     { name: "SQL", icon: <FaDatabase className="shrink-0" /> },
+    { name: "TypeScript", icon: <SiTypescript className="shrink-0" /> },
+    { name: "JavaScript", icon: <SiJavascript className="shrink-0" /> },
     { name: "HTML", icon: <FaHtml5 className="shrink-0" /> },
     { name: "CSS", icon: <FaCss3Alt className="shrink-0" /> },
-    { name: "JavaScript", icon: <SiJavascript className="shrink-0" /> },
-    { name: "TypeScript", icon: <SiTypescript className="shrink-0" /> },
   ],
   "Frameworks & Libraries": [
     { name: "React.js", icon: <FaReact className="shrink-0" /> },
     { name: "Next.js", icon: <SiNextdotjs className="shrink-0" /> },
+    { name: "TailwindCSS", icon: <SiTailwindcss className="shrink-0" /> },
+    { name: "ShadCN", icon: <SiShadcnui className="shrink-0" /> },
     { name: "Node.js", icon: <FaNodeJs className="shrink-0" /> },
     { name: "FastAPI", icon: <SiFastapi className="shrink-0" /> },
     { name: "Django", icon: <SiDjango className="shrink-0" /> },
-    { name: "Bootstrap", icon: <SiBootstrap className="shrink-0" /> },
     { name: "GraphQL", icon: <SiGraphql className="shrink-0" /> },
+    { name: "tRPC", icon: <SiTrpc className="shrink-0" /> },
+    { name: "Zod", icon: <SiZod className="shrink-0" /> },
+    { name: "Bootstrap", icon: <SiBootstrap className="shrink-0" /> }, // Old skill kept at the bottom
   ],
-  Databases: [
+  "Databases and Tools": [
+    { name: "PostgreSQL", icon: <SiPostgresql className="shrink-0" /> },
     { name: "MySQL", icon: <SiMysql className="shrink-0" /> },
     { name: "MongoDB", icon: <SiMongodb className="shrink-0" /> },
-    { name: "PrismaORM", icon: <FaDatabase className="shrink-0" /> },
+    { name: "PrismaORM", icon: <SiPrisma className="shrink-0" /> },
+    { name: "Supabase", icon: <SiSupabase className="shrink-0" /> },
+    { name: "Neon", icon: <SiNeovim className="shrink-0" /> },
+  ],
+  "Developer Tools": [
+    { name: "Git/GitHub", icon: <FaGithub className="shrink-0" /> },
+    { name: "Docker", icon: <FaDocker className="shrink-0" /> },
+    { name: "AWS", icon: <FaAws className="shrink-0" /> }, // AWS added back
+    { name: "RESTful APIs", icon: <FaDatabase className="shrink-0" /> },
+    { name: "Clerk", icon: <SiClerk className="shrink-0" /> },
+    { name: "GitHub Actions", icon: <FaGithub className="shrink-0" /> },
+    { name: "Git Controls", icon: <FaGitAlt className="shrink-0" /> }, // Old skill kept for consistency
   ],
   "Operating Systems": [
     { name: "Linux", icon: <FaLinux className="shrink-0" /> },
     { name: "MacOS", icon: <FaApple className="shrink-0" /> },
     { name: "Windows", icon: <FaWindows className="shrink-0" /> },
-  ],
-  "Tools/Platforms": [
-    { name: "GitHub Actions", icon: <FaGithub className="shrink-0" /> },
-    { name: "Git Controls", icon: <FaGitAlt className="shrink-0" /> },
-    { name: "AWS", icon: <FaAws className="shrink-0" /> },
-    { name: "Docker", icon: <FaDocker className="shrink-0" /> },
-    { name: "RESTful API", icon: <FaDatabase className="shrink-0" /> },
   ],
 };
 
@@ -95,13 +113,8 @@ const MySkills = () => {
   const skillCategories = Object.keys(skills);
 
   return (
-    <div
-      id="skills"
-      className="py-16 px-6 bg-gray-900 text-white overflow-hidden"
-    >
-      <h2 className="text-center text-4xl font-bold text-red-500 mb-10">
-        Technical Skills
-      </h2>
+    <div id="skills" className="py-16 px-6 bg-gray-900 text-white overflow-hidden">
+      <h2 className="text-center text-4xl font-bold text-red-500 mb-10">Technical Skills</h2>
       {/* Flex container with wrapping and centered items */}
       <div className="flex flex-wrap justify-center gap-7 max-w-6xl mx-auto">
         {skillCategories.map((category) => (
