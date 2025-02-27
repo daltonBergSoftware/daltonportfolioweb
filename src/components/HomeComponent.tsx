@@ -20,7 +20,7 @@ const HomeComponent = () => {
         {/* Text Section */}
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-red-500 mb-4">
-            Hi, I&apos;m Dalton Berg
+            Hi, I&apos;m Dalton
           </h1>
           <h2 className="text-2xl sm:text-3xl text-red-400 mb-3">
             Software Engineering Student at ASU
