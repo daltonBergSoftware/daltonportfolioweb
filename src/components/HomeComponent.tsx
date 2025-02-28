@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import PortfolioPic from "@/images/DaltonsPortfolioPicture.jpg";
 import BackgroundPic from "@/images/PortfolioHomeBackgroundImg.jpeg";
+import { Link } from "react-scroll";
 
 const HomeComponent = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -49,6 +50,20 @@ const HomeComponent = () => {
               </li>
             ))}
           </ul>
+
+          {/* CTA: Check out my Startups */}
+          <p className="mt-6 text-xl font-bold text-gray-200">
+            Check out my Startups{""}
+            <Link
+              to="working-on"
+              smooth={true}
+              duration={500}
+              className="text-red-500 no-underline cursor-pointer transition-all duration-300 transform hover:text-white hover:bg-red-500 hover:scale-110 hover:rotate-2 hover:shadow-lg pl-2 py-1 rounded"
+            >
+              Here
+            </Link>
+            !!
+          </p>
         </div>
 
         {/* Image Section with Coin Flip Effect */}
