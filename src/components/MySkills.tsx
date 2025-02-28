@@ -40,7 +40,7 @@ import {
 } from "react-icons/si";
 
 const skills = {
-  "Languages": [
+  Languages: [
     { name: "Python", icon: <FaPython className="shrink-0" /> },
     { name: "Java", icon: <FaJava className="shrink-0" /> },
     { name: "C++", icon: <SiCplusplus className="shrink-0" /> },
@@ -113,8 +113,13 @@ const MySkills = () => {
   const skillCategories = Object.keys(skills);
 
   return (
-    <div id="skills" className="py-16 px-6 bg-gray-900 text-white overflow-hidden">
-      <h2 className="text-center text-4xl font-bold text-red-500 mb-10">Technical Skills</h2>
+    <div
+      id="skills"
+      className="py-16 px-6 bg-gray-900 text-white overflow-hidden"
+    >
+      <h2 className="text-center text-4xl font-bold text-red-500 mb-10">
+        Technical Skills
+      </h2>
       {/* Flex container with wrapping and centered items */}
       <div className="flex flex-wrap justify-center gap-7 max-w-6xl mx-auto">
         {skillCategories.map((category) => (
